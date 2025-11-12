@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+mysql:
+  dsn: "root:root@tcp(localhost:3306)/shortlink?charset=utf8mb4&parseTime=True&loc=Local"
+  max_open_conns: 50
+  max_idle_conns: 10
+
+redis:
+  addr: "localhost:6379"
+  password: ""
+  db: 0
+  key_prefix: "sl:"
+  ttl_seconds: 86400   # 缓存过期时间（秒），1天

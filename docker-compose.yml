@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: shortlink-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shortlink
+      TZ: Asia/Shanghai
+    command:
+      [
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_general_ci",
+        "--default-authentication-plugin=mysql_native_password",
+      ]
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:7.2
+    container_name: shortlink-redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
